@@ -75,7 +75,7 @@ if __name__ == '__main__':
     model = improved_model.Resnet50(args).cuda()
 
     ''' resume save model '''
-    checkpoint = torch.load(os.path.join(args.save_dir, 'model_best.pth.tar'))
+    checkpoint = torch.load(os.path.join(args.save_dir, './log/model_bestimproved.pth.tar'))
     model.load_state_dict(checkpoint)
 
     save(test_loader, args)

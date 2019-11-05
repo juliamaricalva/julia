@@ -55,7 +55,7 @@ def save(data_loader):
             for i in pred:
 #                print(set(i.flatten()))
                 result = Image.fromarray((i).astype(np.uint8))
-                result.save( args.save_data_dir + '/' + path[n])
+                result.save(args.save_data_dir + '/' + path[n])
                 n +=1
 
 if __name__ == '__main__':
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     model = models.Net(args).cuda()
 
     ''' resume save model '''
-    checkpoint = torch.load(os.path.join(args.save_dir, 'model_best.pth.tar'))
+    checkpoint = torch.load(os.path.join(args.save_dir, './log/model_best.pth.tar'))
     model.load_state_dict(checkpoint)
 
     save(test_loader, args)
