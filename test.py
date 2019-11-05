@@ -38,7 +38,7 @@ def evaluate(model, data_loader):
     return mean_iou_score(preds)
 
 #to get the mask
-"""def save(data_loader):
+def save(data_loader):
     ''' set model to evaluate mode '''
     model.eval()
 
@@ -55,8 +55,8 @@ def evaluate(model, data_loader):
             for i in pred:
 #                print(set(i.flatten()))
                 result = Image.fromarray((i).astype(np.uint8))
-                result.save( "./outputfiles/" + path[n])
-                n +=1"""
+                result.save( args.save_data_dir + '/' + path[n])
+                n +=1
 
 if __name__ == '__main__':
     args = parser1.arg_parse()
@@ -77,6 +77,4 @@ if __name__ == '__main__':
     checkpoint = torch.load(os.path.join(args.save_dir, 'model_best.pth.tar'))
     model.load_state_dict(checkpoint)
 
-    acc = evaluate(model, test_loader)
-   # acc1 = save(test_loader)
-    print('Testing Accuracy: {}'.format(acc))
+    save(test_loader, args)

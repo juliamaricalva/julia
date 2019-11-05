@@ -21,7 +21,8 @@ class DATA(Dataset):
         ''' set up basic parameters for dataset '''
 
         self.mode = mode
-        self.dirimg = 'hw2_data/' + mode + '/img'
+        self.dirimg = args.data_dir
+        #self.dirimg = 'hw2_data/' + mode + '/img'
         self.data_dirimg = os.listdir(self.dirimg)
         self.img_dir = [self.dirimg + '/' + photo for photo in self.data_dirimg]
 
@@ -45,5 +46,5 @@ class DATA(Dataset):
         img = np.array(img)
         # img = torch.from_numpy(img)
 
-        return self.transform(img)
+        return self.transform(img), img_path
         #to get the mask need os.path.basename(img_path)
