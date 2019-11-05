@@ -38,7 +38,7 @@ def evaluate(model, data_loader):
     return mean_iou_score(preds)
 
 #to get the mask
-def save(data_loader):
+def save(data_loader, args):
     ''' set model to evaluate mode '''
     model.eval()
 
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     model = models.Net(args).cuda()
 
     ''' resume save model '''
-    checkpoint = torch.load(os.path.join(args.save_dir, './log/model_best.pth.tar'))
+    checkpoint = torch.load(os.path.join( './log/model_best.pth.tar'))
     model.load_state_dict(checkpoint)
 
     save(test_loader, args)

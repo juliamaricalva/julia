@@ -46,5 +46,5 @@ class DATA(Dataset):
         img = np.array(img)
         # img = torch.from_numpy(img)
 
-        return self.transform(img), img_path
+        return self.transform(img), os.path.basename(img_path)
         #to get the mask need os.path.basename(img_path)
