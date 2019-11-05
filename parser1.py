@@ -6,7 +6,7 @@ def arg_parse():
     parser = argparse.ArgumentParser(description='DLCV TA\'s tutorial in image classification using pytorch')
 
     # Datasets parameters
-    parser.add_argument('--data_dir', type=str, default='data',
+    parser.add_argument('--data_dir', type=str, default='hw2_data/val/img',
                         help="root path to data directory")
     parser.add_argument('--workers', default=4, type=int,
                         help="number of data loading workers (default: 4)")
@@ -33,6 +33,7 @@ def arg_parse():
     # others
     parser.add_argument('--save_dir', type=str, default='log')
     parser.add_argument('--random_seed', type=int, default=999)
+    parser.add_argument('--save_data_dir', type=str, default='mask')
 
     args = parser.parse_args()
 
